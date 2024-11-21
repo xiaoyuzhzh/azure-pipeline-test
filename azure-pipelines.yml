@@ -31,6 +31,6 @@ stages:
       displayName: Push an image
       inputs:
         containerRegistry: 'aliyun-api-hub'
-        repository: 'azure-server'
+        repository: 'api'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
