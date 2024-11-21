@@ -27,3 +27,10 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      displayName: Push an image
+      inputs:
+        containerRegistry: 'aliyun-api-hub'
+        repository: 'azure-server'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
