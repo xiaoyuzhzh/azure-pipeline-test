@@ -48,8 +48,8 @@ stages:
           # Assuming deploy.sh is in the home directory and executable
           cd ~
           echo 'Setting up environment variables...'
-          echo "$(GPG_PASSWORD)" > .gpgpass
-          echo "$(DOCKER_PASSWORD)" > .dockerpass
+          echo "$(gpgPassword)" > .gpgpass
+          echo "$(dockerPassword)" > .dockerpass
           chmod 600 .gpgpass .dockerpass
           export GPG_PASSWORD=$(cat .gpgpass)
           export DOCKER_PASSWORD=$(cat .dockerpass)
