@@ -47,8 +47,8 @@ stages:
         inline:  |
           # Assuming deploy.sh is in the home directory and executable
           cd ~
-          export DOCKER_PASSWORD=$(dockerPassword)
-          export GPG_PASSWORD=$(gpgPassword)
+          export DOCKER_PASSWORD=$(passwd)
+          export GPG_PASSWORD=$(passwd)
           echo $GPG_PASSWORD
           echo $DOCKER_PASSWORD
           source ~/.profile
