@@ -47,5 +47,5 @@ stages:
         inline:  |
           # Assuming deploy.sh is in the home directory and executable
           cd ~
-          ./deploy.sh $BUILD_ID
+          bash ./deploy.sh $BUILD_ID
 
