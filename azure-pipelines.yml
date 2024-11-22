@@ -28,6 +28,6 @@ stages:
       displayName: build and push
       inputs:
         containerRegistry: 'aliyun-registry'
-        repository: 'azure-test'
+        repository: 'xiaoyuzhzh/azure-test'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
