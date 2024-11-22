@@ -31,3 +31,21 @@ stages:
         repository: 'xiaoyuzhzh/azure-test'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+- stage: Deploy
+  displayName: Deploy to Remote Server
+  jobs:
+  - job: DeployJob
+    displayName: Deploy Image
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: SSH@0
+      displayName: Pull and Run Docker Image
+      inputs:
+        sshEndpoint: 'cheap-ecs'
+        runOptions: 'inline'
+        inline:  |
+          # Assuming deploy.sh is in the home directory and executable
+          cd ~
+          ./deploy.sh $BUILD_ID
+
