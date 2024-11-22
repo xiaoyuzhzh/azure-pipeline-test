@@ -52,5 +52,5 @@ stages:
           source ~/.profile
           ./pass.sh
           echo $DOCKER_PASSWORD | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
-          bash ./deploy.sh '$(Build.BuildId)'
+          bash ./deploy.sh 36
 
