@@ -50,7 +50,7 @@ stages:
           export DOCKER_PASSWORD=$(dockerPassword)
           export GPG_PASSWORD=$(gpgPassword)
           source ~/.profile
-          ./pass.sh
           echo $DOCKER_PASSWORD | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
+          ./pass.sh
           bash ./deploy.sh 36
 
