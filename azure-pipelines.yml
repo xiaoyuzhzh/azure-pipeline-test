@@ -48,11 +48,12 @@ stages:
           # Assuming deploy.sh is in the home directory and executable
           cd ~
           echo 'Setting up environment variables...'
-          echo "$(gpgPassword)" > .gpgpass
+          echo "$(passwd)" > .gpgpass
           echo "$(dockerPassword)" > .dockerpass
           chmod 600 .gpgpass .dockerpass
           export GPG_PASSWORD=$(cat .gpgpass)
           export DOCKER_PASSWORD=$(cat .dockerpass)
+          echo "GPG_PASSWORD is set to '$GPG_PASSWORD'"
           echo "Environment variables set. Proceeding with Docker login and script execution..."
           source ~/.profile
           echo $DOCKER_PASSWORD | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
