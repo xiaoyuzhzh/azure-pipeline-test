@@ -21,6 +21,7 @@ public class GreetingController {
 
 	@GetMapping(value = "/")
 	public String index() {
-		return "Hello, World!";
+		return "Hello, World!V2";
 	}
+
 }
