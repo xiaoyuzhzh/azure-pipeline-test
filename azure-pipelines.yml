@@ -47,6 +47,7 @@ stages:
         inline:  |
           # Assuming deploy.sh is in the home directory and executable
           cd ~
+          gpg --list-secret-keys
           echo 'Setting up environment variables...'
           echo "$(passwd)" > .gpgpass
           echo "$(dockerPassword)" > .dockerpass
