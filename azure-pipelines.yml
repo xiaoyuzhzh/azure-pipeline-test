@@ -47,7 +47,10 @@ stages:
         inline:  |
           # Assuming deploy.sh is in the home directory and executable
           cd ~
-          echo $(dockerPassword) | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
+          export DOCKER_PASSWORD=$(dockerPassword)
+          export GPG_PASSWORD=$(gpgPassword)
           source ~/.profile
+          ./pass.sh
+          echo $DOCKER_PASSWORD | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
           bash ./deploy.sh '$(Build.BuildId)'
 
