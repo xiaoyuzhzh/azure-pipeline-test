@@ -48,7 +48,7 @@ stages:
           # Assuming deploy.sh is in the home directory and executable
           cd ~
           echo 'start deploy'
-          source ~/.bashrc
+          source ~/.profile
           echo $DOCKER_USERNAME
           bash ./deploy.sh $BUILD_ID
 
