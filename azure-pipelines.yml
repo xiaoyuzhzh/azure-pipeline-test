@@ -50,5 +50,5 @@ stages:
           echo 'start deploy'
           source ~/.profile
           echo $DOCKER_USERNAME
-          bash ./deploy.sh $BUILD_ID
+          bash ./deploy.sh '$(Build.BuildId)'
 
