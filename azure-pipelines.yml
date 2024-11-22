@@ -47,5 +47,7 @@ stages:
         inline:  |
           # Assuming deploy.sh is in the home directory and executable
           cd ~
-          ./deploy.sh $BUILD_ID
+          echo $(dockerPassword) | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
+          source ~/.profile
+          bash ./deploy.sh '$(Build.BuildId)'
 
