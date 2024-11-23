@@ -53,5 +53,5 @@ stages:
           # ./pass.sh
           echo $GPG_PASSWORD | gpg --batch --yes --passphrase-fd 0 --decrypt-files ~/.password-store/docker-credentials.gpg 2>&1
           echo "start pull image and run"
-          bash ./deploy.sh 36
+          bash ./deploy.sh '$(Build.BuildId)'
 
