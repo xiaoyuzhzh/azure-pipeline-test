@@ -45,16 +45,12 @@ stages:
         sshEndpoint: 'cheap-ecs'
         runOptions: 'inline'
         inline:  |
-          # Assuming deploy.sh is in the home directory and executable
           cd ~
-          gpg --list-secret-keys
-          expect -v 
-          echo 'Setting up environment variables...'
-          export GPG_PASSWORD=$(passwd)
-          echo "GPG_PASSWORD is set to '$GPG_PASSWORD'"
-          echo "Environment variables set. Proceeding with Docker login and script execution..."
+          export GPG_PASSWORD=$(gpgPassword)
           source ~/.profile
           echo $(dockerPassword) | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
+          # enter gpg password
           ./pass.sh
+          # start pull image and run
           bash ./deploy.sh 36
 
