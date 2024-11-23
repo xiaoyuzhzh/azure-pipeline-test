@@ -51,7 +51,7 @@ stages:
           echo $(dockerPassword) | docker login --username $(dockerUsername) --password-stdin $(dockerRegistryUrlVPC)
           echo "enter gpg password"
           # ./pass.sh
-          echo $GPG_PASSWORD | gpg --batch --yes --passphrase-fd 0 --decrypt-files ~/.password-store/docker-credentials.gpg
+          echo $GPG_PASSWORD | gpg --batch --yes --passphrase-fd 0 --decrypt-files ~/.password-store/docker-credentials.gpg 2>&1
           echo "start pull image and run"
           bash ./deploy.sh 36
 
