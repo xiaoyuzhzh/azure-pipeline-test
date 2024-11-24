@@ -20,11 +20,6 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: login
-      inputs:
-        command: login
-        containerRegistry: 'aliyun-registry'
-    - task: Docker@2
       displayName: build and push
       inputs:
         containerRegistry: 'aliyun-registry'
